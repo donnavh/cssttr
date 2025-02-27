@@ -1,0 +1,183 @@
+body{
+  display: flex;
+  background: pink;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;  
+}
+
+/* hele hello kitty  */
+article{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+/* oren */
+header, nav{
+    width: 60px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+}
+
+/* linker oor */
+header{
+    left: -10px;
+
+    transform: rotate(-20deg);
+    border: 2px solid black;
+}
+/* rechter oor */
+nav{
+    right: -10px;
+    transform: rotate(20deg);
+    border: 2px solid black;
+}
+
+/* hoofd */
+article > section:first-of-type{
+    width: 180px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    border: 2px solid black;
+
+}
+
+/* ogen */
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    position: absolute;
+    top: 50px;
+}
+
+ul li{
+    width: 15px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+}
+
+/* neus */
+article > section:first-of-type section:nth-of-type(1){
+    width: 25px;
+    height: 15px;
+    background: rgb(255, 255, 0);
+    border: 2px solid black;
+    /* display: flex; */
+    position: absolute;
+    top: 80px;
+    border-radius: 50%;
+
+}
+
+/* snorharen */
+section section{
+    position: absolute;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+   
+}
+
+section section span{
+    width: 30px;
+    height: 3px;
+    background: black;
+    position: absolute;
+}
+
+section section span:nth-of-type(1){
+    left: -110px;
+    top: -10px;
+    transform: rotate(5deg);
+}
+
+section section span:nth-of-type(2){
+    left: -105px;
+    transform: rotate(-1deg);
+    /* top: -5px; */
+}
+
+section section span:nth-of-type(3){
+    left: -100px;
+    top: 10px;
+    transform: rotate(-10deg);
+}
+
+section section span:nth-of-type(4){
+    right: -110px;
+    top: -10px;
+    transform: rotate(-5deg);
+}
+
+section section span:nth-of-type(5){
+    right: -105px;
+    /* top: -5px; */
+    transform: rotate(-1deg);
+}
+
+section section span:nth-of-type(6){
+    right: -100px;
+    top: 10px;
+    transform: rotate(10deg);
+}
+
+/* strik */
+aside{
+    position: absolute;
+    top: 0px;
+    /* right: -40px; */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+aside figure{
+    width: 40px;
+    height: 50px;
+    /* background: red; */
+    /* border-radius: 50%; */
+    position: absolute;
+}
+
+aside figure:nth-of-type(1){
+    right: -100px;
+    background: red;
+    border-radius: 50%;
+
+}
+
+aside figure:nth-of-type(2){
+    right: -120px;
+    top: -30px;
+    border-radius: 80%;
+    background: fuchsia;
+    transform: rotate(110deg);
+    
+}
+
+aside figure:nth-of-type(3){
+    right: -140px;
+    top: -20px;
+    border-radius: 50%;
+    background: red;
+    transform: rotate(30deg);
+
+}
