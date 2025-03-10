@@ -1,11 +1,16 @@
 body{
   display: flex;
   /* background: rgb(131,58,180); */
-  background: linear-gradient(
+  /* background: linear-gradient(
       
        rgba(131,58,180,1) ,
-       rgba(253,29,29,1), 
-       rgba(252,176,69,1) );
+       rgba(253,29,29,1) , 
+       rgba(252,176,69,1) ); */
+
+ background: repeating-radial-gradient(
+     ellipse 80% 100% at 48% 63%,
+      #c7eafd 0%,
+      #e8198b 100%);
 
   height: 100vh;
   padding: 0;
@@ -13,6 +18,10 @@ body{
   justify-content: center;
   align-items: center;  
 }
+
+
+
+
 
 h1{
     position: fixed;
@@ -25,34 +34,124 @@ h1{
 body > section:nth-of-type(1){
     /* background-color: blue; */
 
-    position: fixed;
-    top: 0;
+   
+    position: absolute;
+    left: 4vmin;
+    bottom:30vmin;
+   
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
   
-&:has(input[type="checkbox"]:checked){
 
-    background-color: black;
+
+/* input {
+    appearance: none;
+    font: inherit;
+    margin: 0;
+
+    width: 4em;
+    height: 4em;
+    
+    margin: .5em;
+    
+    border-radius: 50%;
+    background-color: white;
+} */
+
 }
 
-}
 
 body > section:nth-of-type(1) input{
-    /* background-color:red; */
-    display: flex;
-    /* padding: 1em  */
-    width: 28px;
-    height: 28px;
-    position: relative;
-   
-    top: 5em;
+ 
+    appearance: none;
+    font: inherit;
+    margin: 0;
+
+    width: 4em;
+    height: 2em;
+    margin: .5em;
+    
+    border-radius: 50%;
+    /* background-color: white; */
+  
 }
 
-body > section:nth-of-type(1) input:active{
-        background-color: silver;
+body > section:nth-of-type(1) input[value="geel"]{
+    background-color: yellow;
+
+    
+}
+
+body > section:nth-of-type(1) input[value="roze"]{
+    background-color:pink;
+}
+
+body > section:nth-of-type(1) input[value="rood"]{
+    background-color: red;
+}
+
+body > section:nth-of-type(1) input[value="blauw"]{
+    background-color:blue;
+}
+
+
+body > section:nth-of-type(1) input:checked{
+        background-color: grey;
+  
 
     }
+
+
+
+ article > div{
+        position: absolute;
+        top: 11em;
+    
+        width: 12em;
+        height: 8em;
+       
+        border-radius: 40%;
+        box-shadow: ;
+        background-color: blue;
+        z-index: 10;
+    
+       
+        -webkit-clip-path:
+        polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
+        clip-path:
+        polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
+    
+        /* Bron: https://easycodetools.com/tool/cssclippath-generator */
+    
+/* &has(input[value="geel"]:checked){
+    background-color: yellow;
+} */
+
+
+ } 
+  
+ 
+
+
+html:has(input[value="geel"]:checked) article > div {
+    background-color: hsl(56, 100%, 82%);
+    
+}
+
+html:has(input[value="roze"]:checked) article > div {
+    background-color: pink;
+}
+
+html:has(input[value="rood"]:checked) article > div {
+    background-color: red;
+}
+
+html:has(input[value="blue"]:checked) article > div {
+    background-color: blue;
+}
+
+
 
 /* hele hello kitty  */
 article{
@@ -208,7 +307,7 @@ aside{
     background: red;
  
     border-radius: 50%;
-    box-shadow: inset 0 -4px 6px rgba(0, 0, 0.2);
+    /* box-shadow: inset 0 -4px 6px rgba(0, 0, 0.2); */
 }
 
 aside::before,
@@ -218,7 +317,7 @@ aside::after {
     width: 55px;
     height: 60px;
     background: red;
-    box-shadow: inset 0 -4px 6px rgba(0, 0, 0.2);
+    /* box-shadow: inset 0 -4px 6px rgba(0, 0, 0.2); */
 
     /* border-radius:21% 70% 64% 20% / 40% 53% 45% 38% ;    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2); */
 }
@@ -296,15 +395,23 @@ label:nth-of-type(2) {
 }
 
 
+/* jurkje */
+
+
+
+
 /* wereldbol */
-body > div{
+body > div:nth-of-type(1){
     width: 250px;
     height: 250px;
     
+    
+
     margin: auto;
 
-    position:fixed;
+    position: absolute;
     top: 36em;
+    /* left: 5em; */
     /* margin-top: 140px; */
     background-color: white ;
     border-radius:50% ;
@@ -321,4 +428,24 @@ body > div{
    
 }
 
- /* Bron:https://codepen.io/jpbarth/pen/VyyegV  */
+/* checkbox voor light en dark */
+body > section:nth-of-type(2){
+
+}
+
+
+body > section:nth-of-type(2) input{
+    appearance: none;
+    font: inherit;
+    margin:0;
+
+    width: 5em;
+    height: 3em;
+
+}
+
+
+/* Bron:https://codepen.io/jpbarth/pen/VyyegV  */
+
+
+/* t-shirt */
