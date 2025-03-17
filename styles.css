@@ -1,43 +1,41 @@
-:root{
+:root {
     /* color-scheme: light dark; */
 
-    --background: repeating-radial-gradient(
-        ellipse 80% 100% at 48% 63%,
-         #c7eafd 0%,
-         #e8198b 100%);
+    --background: repeating-radial-gradient(ellipse 80% 100% at 48% 63%,
+            #c7eafd 0%,
+            #e8198b 100%);
     --hello-kitty: white;
     --geel: hsl(56, 100%, 82%);
     --roze: pink;
     --rood: red;
-    --blauw: blue; 
-    --zwart: black ;
+    --blauw: blue;
+    --zwart: black;
+    --active-color: geel; 
 }
 
 
 
-body{
-  display: flex;
-    
- background: repeating-radial-gradient(
-     ellipse 80% 100% at 48% 63%,
-      #c7eafd 0%,
-      #e8198b 100%);
+body {
+    display: flex;
 
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
-  align-items: center;  
+    background: repeating-radial-gradient(ellipse 80% 100% at 48% 63%,
+            #c7eafd 0%,
+            #e8198b 100%);
 
-  overflow:clip;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+
+    /* --active-color: geel; */
+
+    overflow: clip;
 
 }
 
 
-
-
-
-h1{
+h1 {
     position: fixed;
     top: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -45,166 +43,212 @@ h1{
 }
 
 /* control panel */
-body > section:nth-of-type(1){
+body>section:nth-of-type(1) {
     /* background-color: blue; */
 
-   
+
     position: absolute;
     left: 4vmin;
-    bottom:30vmin;
-   
+    bottom: 30vmin;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
+
     background-color: coral;
     padding: 0;
     border-radius: 20%;
 
+    /* container-type: inline-size; */
+
 }
 
 
-body > section:nth-of-type(1) input{
- 
+body > section:nth-of-type(1) input {
+
     appearance: none;
     font: inherit;
     margin: 0;
 
-    width: 4em;
+    width: 2em;
     height: 2em;
     margin: .5em;
     cursor: pointer;
-    
+
     border-radius: 50%;
     /* background-color: white; */
+    
 
-    &:checked{
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    }
-  
+    &:checked {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
 }
 
-body > section:nth-of-type(1){
-    input[value="geel"]{
-        background-color: var(--geel);}
-
-    input[value="roze"]{
-        background-color: var(--roze);}
-
-    
-    input[value="rood"]{
-        background-color: var(--rood);}
-
-    input[value="blauw"]{
-        background-color: var(--blauw);}
-
-} 
-
-
-
- article > div{
-        position: absolute;
-        top: 11em;
-    
-        width: 12em;
-        height: 8em;
+/* @container (min-width:400px) {
+    body > section:nth-of-type(1) {
        
-        border-radius: 40%;
-        box-shadow: ;
+        width: 5em;
+        background-color: ;
+    }
+} */
+
+body>section:nth-of-type(1) {
+    input[value="geel"] {
+        background-color: var(--geel);
+        --active-color: geel;
+    }
+
+    input[value="roze"] {
+        background-color: var(--roze);
+        --active-color: roze;
+    }
+
+
+    input[value="rood"] {
+        background-color: var(--rood);
+    }
+
+    input[value="blauw"] {
         background-color: var(--blauw);
-        z-index: 10;
-    
-       
-        -webkit-clip-path:
-        polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
-        clip-path:
-        polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
-    
-        /* Bron: https://easycodetools.com/tool/cssclippath-generator */
-    
-
- } 
-  
- 
-
-
-html:has(input[value="geel"]:checked) article > div {
-    background-color: var(--geel);
-    
-}
-
-html:has(input[value="roze"]:checked) article > div {
-    background-color: var(--roze);
-}
-
-html:has(input[value="rood"]:checked) article > div {
-    background-color: var(--rood);
-}
-
-html:has(input[value="blue"]:checked) article > div {
-    background-color: var(--blauw);
-}
-
-
-
-/* hele hello kitty  */
-article{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /* container-name: hellokitty ;  */
-   
-}
-
-@container style(max-width: 500px) {
-
-    article{
-        width: 50px;
-        height: 45px; 
-        background-color: black;
     }
 
 }
 
 
-
-/* oren */
-header, nav{
-    width: 100px;
-    height: 90px;
-    background: white;
-    border-radius: 50%;
+/* jurkje */
+article > div > div {
     position: absolute;
-    top: -30px;
-}
+    width: 65%;
+    height: 9em;
+    left: 50% ;
+    translate: -50% 0;
+    border-radius: 40%;
+    background-color: var(--blauw);
+    z-index: 1;
+    /* container-type: inline-size; */
 
-/* linker oor */
-header{
-    left: 5px;
 
-    transform: rotate(-20deg);
-    /* border: 2px solid black; */
-    border-radius:53% 46% 15% 10% / 86% 88% 13% 13% ;
-    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-clip-path:
+        polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
+    clip-path:
+        polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
 
-}
-/* rechter oor */
-nav{
-    right: 0px;
-    transform: rotate(20deg);
-    /* border: 2px solid black; */
-    border-radius:53% 46% 15% 10% / 86% 88% 13% 13% ;
-    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    /* Bron: https://easycodetools.com/tool/cssclippath-generator */
+
 
 }
+
+
+
+html:has(input[value="geel"]:checked) article>div>div {
+    background-color: var(--geel);
+    /* --active-color: geel ;  */
+
+
+}
+
+html:has(input[value="roze"]:checked){
+    --active-color: "roze";
+}
+
+html:has(input[value="rood"]:checked){
+    --active-color: "rood";
+}
+html:has(input[value="geel"]:checked){
+    --active-color: "geel";
+}
+html:has(input[value="blauw"]:checked){
+    --active-color: "blauw";
+}
+
+
+
+html:has(input[value="roze"]:checked) article > div > div {
+    background-color: var(--roze);
+    /* --active-color: roze;  */
+}
+
+html:has(input[value="rood"]:checked) article>div>div {
+    background-color: var(--rood);
+    /* --active-color: rood; */
+}
+
+html:has(input[value="blue"]:checked) article>div>div {
+    background-color: var(--blauw);
+    /* --active-color: blauw ;  */
+}
+
+/* @container style(--active-color: blauw){
+    article{
+        transform: rotate(180deg);
+    }
+   
+} */
+
+@container style(--active-color: geel){
+    article{
+        animation: jump 0.5 ease-in-out;
+        background-color: yellow;
+    }
+   
+}
+
+@container style(--active-color: roze){
+   article{
+    background-color: pink;
+}
+}
+
+@container style(--active-color: blauw){
+    article{
+     background-color: blue;
+ }
+ }
+
+ @container style(--active-color: rood){
+    article{
+     background-color: red;
+ }
+ }
+
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(2em);
+    }
+}
+
+
+
+
+
+/* hele hello kitty  */
+article {
+    /* --active-color: var(--blauw); */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 17em;
+
+    >div {
+        /* container-type: inline-size; */
+        width: 100%;
+        flex: 1;
+    }
+
+}
+
 
 /* hoofd */
-article > section:first-of-type{
-    width: 270px;
+article>div>section:nth-of-type(1) {
+    width: 100%;
     height: 180px;
-    /* aspect-ratio: 3/2; */
-   border-radius: 50% / 60%;
+    border-radius: 50% / 60%;
     background: var(--hello-kitty);
     box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
 
@@ -213,198 +257,232 @@ article > section:first-of-type{
     justify-content: center;
     align-items: center;
 
-}
+
+    /* oren */
+    header,
+    nav {
+        width: 100px;
+        height: 90px;
+        background-color: white;
+        position: absolute;
+        top: -20%;
+        z-index: -1;
+    }
+
+    /* linkeroor */
+    header {
+        left: 0%;
+        transform: rotate(-20deg);
+
+        border-radius: 53% 46% 15% 10% / 86% 88% 13% 13%;
+        box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* rechteroor */
+    nav {
+        right: 0%;
+        transform: rotate(20deg);
+        border-radius: 53% 46% 15% 10% / 86% 88% 13% 13%;
+        box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ogen */
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 50%;
+
+        /* ogen */
+        li {
+            width: 20px;
+            height: 30px;
+            background: black;
+            border-radius: 50%;
+        }
+    }
+
+    /* neusje */
+    >section:nth-of-type(1) {
+        width: 37px;
+        height: 19px;
+        background: gold;
+        position: absolute;
+        top: 60%;
+        border-radius: 50%;
+
+    }
+
+    /* snorharen */
+    >section:nth-of-type(2) {
+        position: absolute;
+        top: 60%;
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        >section:nth-of-type(1) {
+            left: -10%;
+            height: 100%;
+            position: absolute;
+
+            span:nth-of-type(1) {
+                top: 0;
+            }
+
+            span:nth-of-type(2) {
+                top: 10%;
+                transform: rotate(-5deg);
+            }
+
+            span:nth-of-type(3) {
+                top: 20%;
+
+                transform: rotate(-10deg);
+            }
+
+        }
+
+        >section:nth-of-type(2) {
+            position: absolute;
+            height: 100%;
+            right: 10%;
+            /* background-color: orange; */
+
+            span:nth-of-type(1) {
+                top: 0%;
+            }
+
+            span:nth-of-type(2) {
+                top: 10%;
+                transform: rotate(5deg);
+            }
+
+            span:nth-of-type(3) {
+                top: 20%;
+                transform: rotate(10deg);
+                /* right: 20%; */
+            }
+        }
 
 
+        span {
 
-/* ogen */
-ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 150px;
-    position: absolute;
-    top: 70px;
-}
+            width: 45px;
+            height: 3px;
+            background-color: black;
+            position: absolute;
 
-ul li{
-    width: 20px;
-    height: 30px;
-    background: black;
-    border-radius: 50%;
-}
+           
+        }
 
-/* neus */
-article > section:first-of-type section:nth-of-type(1){
-    width: 37px;
-    height: 19px;
-    background: gold;
-    /* border: 2px solid black; */
-    /* display: flex; */
-    position: absolute;
-    top: 110px;
-    border-radius: 50%;
+    }
 
-}
+    aside {
+        position: absolute;
+        top: -5%;
+        right: 10%;
+        width: 30px;
+        height: 40px;
+        background-color: red;
+        border-radius: 50%;
 
-/* snorharen */
-section section{
-    position: absolute;
-    top: 90px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-   
-}
+        /* box-shadow: inset 0 -4px 6px rgb(225, 105, 105); */
 
-section section span{
-    width: 45px;
-    height: 3px;
-    background: black;
-    position: absolute;
-}
+        &::before, &::after{
+            content: "";
+            position: absolute;
+            width: 55px;
+            height: 60px;
+            background: red;
+            box-shadow: inset inset 0 -4px 6px rgb(225, 105, 105)2;
+        }
+    &::before{
+        left: -150%;
+        top: -40%;
+        transform: rotate(8deg);
+        border-radius: 21% 70% 64% 20% / 40% 53% 45% 38%;
 
-/* snorharen per stuk */
-section section span:nth-of-type(1){
-    left: -150px;
-    top: -20px;
-    transform: rotate(5deg);
-}
+    }
 
-section section span:nth-of-type(2){
-    left: -150px;
-    transform: rotate(-1deg);
-    top: 5px;
-}
+    &::after{
+        right: -150%;
+        top: -10%;
+        transform: rotate(15deg);
+        border-radius: 69% 16% 36% 58% / 52% 22% 28% 44%
+    }
 
-section section span:nth-of-type(3){
-    left: -150px;
-    top: 30px;
-    transform: rotate(-10deg);
-}
+ }
 
-section section span:nth-of-type(4){
-    right: -150px;
-    top: -20px;
-    transform: rotate(-5deg);
-}
 
-section section span:nth-of-type(5){
-    right: -150px;
-    top: 5px;
-    transform: rotate(-1deg);
-}
+} 
 
-section section span:nth-of-type(6){
-    right: -150px;
-    top: 30px;
-    transform: rotate(10deg);
-}
 
-/* strik */
-aside{
-
-    position: absolute;
-    top:-5px;
-    right: 30px;
-    width: 40px;
-    height: 40px;
-    background: red;
- 
-    border-radius: 50%;
-    box-shadow: inset 0 -4px 6px rgb(225, 105, 105);
-}
-
-aside::before,
-aside::after {
-    content: "";
-    position: absolute;
-    width: 55px;
-    height: 60px;
-    background: red;
-    box-shadow: inset inset 0 -4px 6px rgb(225, 105, 105)2);
-
-    /* border-radius:21% 70% 64% 20% / 40% 53% 45% 38% ;    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2); */
-}
-
-aside::before{
-    left: -45px;
-    top:-20px;
-    transform: rotate(5deg);
-    border-radius:21% 70% 64% 20% / 40% 53% 45% 38% ;
- 
-}
-
-aside::after{
-  right: -45px;
-  top: -5px;
-  transform: rotate(15deg);
-  border-radius:69% 16% 36% 58% / 52% 22% 28% 44% ;
-}
 
 
 /* lichaam */
-article > section:nth-of-type(2){
-      width: 160px;
-      height: 120px;
-      background:white;
-      border-radius: 30% 30% 0 0;
-      /* border-radius:30% 28% 10% 10% / 73% 76% 10% 10% ;  */
-      box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
- 
+article > div > section:nth-of-type(2) {
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    width: 50%;
+    height: 120px;
+
+    background: white;
+    border-radius: 30% 30% 0 0;
+    /* border-radius:30% 28% 10% 10% / 73% 76% 10% 10% ;  */
+    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+
+
+    /* voeten */
+    footer{
+        position: absolute;
+        /* top:-100%; */
+        bottom: -30%;
+        left: 10%;
+        width: 40% ;
+        height: 55px;
+        /* z-index: -1; */
+        background-color: white;
+        border-radius: 0 0 30% 30%;
+        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+
+      
     }
 
-/* voeten */
-footer{
-    position: absolute;
-    width: 70px;
-    height: 55px;
-    background: white;
-    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+    footer:nth-of-type(2){
+        left: 50%;
+    }
 
-  
-}
+    /* armen */
+    label  {
+        position: absolute;
+        width: 20%;
+        height: 70px;
+        bottom: 20%;
+        background-color: white;
+    }
 
-footer:nth-of-type(1){
-    top: 300px;
-    left: 60px;
-    border-radius: 0 0 30% 30%;
-}
+    label:nth-of-type(1){
+        left: -20%;
+        border-radius: 75% 0% 10% 46% / 85% 81% 10% 24%;
+        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+    }
 
+    label:nth-of-type(2){
+        right: -20%;
+        border-radius: 0% 58% 71% 0% / 10% 54% 24% 0%;
+        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+    }
 
-footer:nth-of-type(2){
-    top: 300px;
-    right: 60px;
-    border-radius: 0 0 30% 30%;
-}
-
-
-/* armen */
-label{
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    background: white;
-    box-shadow: ;
 }
 
 
-label:nth-of-type(1) {
-    top: 200px;
-    left: 10px;
-    border-radius:75% 0% 10% 46% / 85% 81% 10% 24% ;
-    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
- 
-}
 
-label:nth-of-type(2) {
-    top: 200px;
-    right: 10px;
-    border-radius:0% 58% 71% 0% / 10% 54% 24% 0% ;
-    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
-}
+
 
 
 /* jurkje */
@@ -413,55 +491,53 @@ label:nth-of-type(2) {
 
 
 /* wereldbol */
-body > div:nth-of-type(1){
+body>div:nth-of-type(1) {
     width: 250px;
     height: 250px;
-    
+
     margin: auto;
 
     position: absolute;
     top: 36em;
     /* left: 5em; */
     /* margin-top: 140px; */
-    background-color: white ;
-    border-radius:50% ;
+    background-color: white;
+    border-radius: 50%;
 
-    box-shadow: 
-    inset 0 0 50px #fff,
-    inset 20px 0 60px green,
-    inset -20px 0 60px blue,
-    inset 20px 0 300px green,
-    inset -20px 0 300px blue,
-      0 0 50px #fff,
-      -10px 0 60px green,
-      10px 0 60px blue;    
-   
+    box-shadow:
+        inset 0 0 50px #fff,
+        inset 20px 0 60px green,
+        inset -20px 0 60px blue,
+        inset 20px 0 300px green,
+        inset -20px 0 300px blue,
+        0 0 50px #fff,
+        -10px 0 60px green,
+        10px 0 60px blue;
+
 }
 
 /* checkbox voor light en dark */
-body > section:nth-of-type(2){
+body>section:nth-of-type(2) {
     /* background-color: chartreuse; */
     position: absolute;
     right: 8em;
-    top: 4em;]
+    top: 4em;
 
 }
 
 
-body > section:nth-of-type(2) input{
+body>section:nth-of-type(2) input {
     appearance: none;
     font: inherit;
-    margin:0;
+    margin: 0;
 
     width: 7em;
     height: 3em;
     padding: .25em;
 
-    background-image: linear-gradient(
-        to left, 
-        rgb(108, 194, 223) 50%, 
-        midnightblue 0
-    );
+    background-image: linear-gradient(to left,
+            rgb(108, 194, 223) 50%,
+            midnightblue 0);
 
     background-size: calc(200% - 3em) 100%;
     background-position: right;
@@ -472,7 +548,7 @@ body > section:nth-of-type(2) input{
 
 }
 
-body > section:nth-of-type(2) input:checked{
+body>section:nth-of-type(2) input:checked {
 
     background-position: left;
     justify-content: right;
@@ -480,7 +556,7 @@ body > section:nth-of-type(2) input:checked{
 }
 
 
-body > section:nth-of-type(2) input::after{
+body>section:nth-of-type(2) input::after {
 
     content: "";
     display: block;
@@ -488,40 +564,37 @@ body > section:nth-of-type(2) input::after{
 
     aspect-ratio: 1;
     background-color: gold;
-    background-image: radial-gradient(
-        gold , 
-        yellow
-    );
+    background-image: radial-gradient(gold,
+            yellow);
     border-radius: 2em;
 
-    box-shadow: 
-    inset -.25em -.25em .25em gold;
+    box-shadow:
+        inset -.25em -.25em .25em gold;
 
     transition: .2s ease-in;
-    
+
 }
 
-body > section:nth-of-type(2) input:checked::after{
+body>section:nth-of-type(2) input:checked::after {
     translate: 4em;
 }
 
 
-body:has(input[type="checkbox"]:checked)  {
-    
-  --background: radial-gradient(
-      ellipse 80% 91% at 51% 76%,
-       #dbdcd7 0%,#dddcd7 24%,
-       #e2c9cc 30%,#e7627d 46%,
-       #b8235a 59%,#801357 71%,
-       #3d1635 84%,#1c1a27 100%);  
+body:has(input[type="checkbox"]:checked) {
 
-   
+    --background: radial-gradient(ellipse 80% 91% at 51% 76%,
+            #dbdcd7 0%, #dddcd7 24%,
+            #e2c9cc 30%, #e7627d 46%,
+            #b8235a 59%, #801357 71%,
+            #3d1635 84%, #1c1a27 100%);
+
+
     background-image: var(--background);
 
 }
 
 
-body > section:nth-of-type(3) li:nth-of-type(1){
+body>section:nth-of-type(3) li:nth-of-type(1) {
 
     position: absolute;
     top: 2em;
@@ -529,16 +602,15 @@ body > section:nth-of-type(3) li:nth-of-type(1){
 
     width: 6em;
     height: 6em;
-    background: radial-gradient(
-        circle 500px at 50% 50%, 
-        #F09819 0%,
-        #EDDE5D 22%);
-    
+    background: radial-gradient(circle 500px at 50% 50%,
+            #F09819 0%,
+            #EDDE5D 22%);
+
     list-style-type: none;
     border-radius: 50%;
 }
 
-body > section:nth-of-type(3) li:nth-of-type(2){
+body>section:nth-of-type(3) li:nth-of-type(2) {
 
     position: absolute;
     top: 2em;
@@ -546,11 +618,10 @@ body > section:nth-of-type(3) li:nth-of-type(2){
 
     width: 6em;
     height: 6em;
-    background: radial-gradient(
-        circle 500px at 50% 50%, 
-        rgb(90, 90, 136) 0%,
-        lightblue 22%);
-    
+    background: radial-gradient(circle 500px at 50% 50%,
+            rgb(90, 90, 136) 0%,
+            lightblue 22%);
+
     list-style-type: none;
     border-radius: 50%;
 
