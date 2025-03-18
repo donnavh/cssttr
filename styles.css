@@ -10,7 +10,7 @@
     --rood: red;
     --blauw: blue;
     --zwart: black;
-    --active-color: geel; 
+    --active-color: roze;
 }
 
 
@@ -23,13 +23,11 @@ body {
             #e8198b 100%);
 
     height: 100vh;
+
     padding: 0;
     margin: 0;
     justify-content: center;
     align-items: center;
-
-    /* --active-color: geel; */
-
     overflow: clip;
 
 }
@@ -37,34 +35,64 @@ body {
 
 h1 {
     position: fixed;
-    top: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    top: 2em;
     color: whitesmoke;
+    font-family: "Caprasimo";
+    text-shadow:
+        1px 1px 2px royalblue,
+        0 0 2em blueviolet,
+        0 0 0.2em violet;
+    font-weight: 400;
+    font-size: 2em;
 }
 
 /* control panel */
 body>section:nth-of-type(1) {
     /* background-color: blue; */
-
-
     position: absolute;
     left: 4vmin;
-    bottom: 30vmin;
+    bottom: 8em;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    background-color: coral;
+    background-color: rgb(0, 0, 0);
     padding: 0;
-    border-radius: 20%;
 
-    /* container-type: inline-size; */
+
+}
+
+@media (min-width: 575px) {
+    body>section:nth-of-type(1) {
+        width: 8em;
+        background-color: white;
+        /* border-radius: 50%; */
+    }
+
+    body>section:nth-of-type(1) input {
+        width: 7em;
+        background-color: #e8198b;
+    }
+
+    body>section:nth-of-type(3) li:nth-of-type(1) {
+        width: 12em;
+        height: 12em;
+    }
+
+    body>section:nth-of-type(3) li:nth-of-type(2) {
+        width: 12em;
+        height: 12em;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
 
 }
 
 
-body > section:nth-of-type(1) input {
+section:nth-of-type(1) input {
 
     appearance: none;
     font: inherit;
@@ -75,23 +103,13 @@ body > section:nth-of-type(1) input {
     margin: .5em;
     cursor: pointer;
 
-    border-radius: 50%;
-    /* background-color: white; */
-    
-
+    /* border-radius: 50%; */
     &:checked {
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 80px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
 
 }
 
-/* @container (min-width:400px) {
-    body > section:nth-of-type(1) {
-       
-        width: 5em;
-        background-color: ;
-    }
-} */
 
 body>section:nth-of-type(1) {
     input[value="geel"] {
@@ -117,16 +135,15 @@ body>section:nth-of-type(1) {
 
 
 /* jurkje */
-article > div > div {
+article>div>div {
     position: absolute;
     width: 65%;
     height: 9em;
-    left: 50% ;
+    left: 50%;
     translate: -50% 0;
     border-radius: 40%;
     background-color: var(--blauw);
     z-index: 1;
-    /* container-type: inline-size; */
 
 
     -webkit-clip-path:
@@ -135,36 +152,33 @@ article > div > div {
         polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
 
     /* Bron: https://easycodetools.com/tool/cssclippath-generator */
-
-
 }
 
 
 
 html:has(input[value="geel"]:checked) article>div>div {
     background-color: var(--geel);
-    /* --active-color: geel ;  */
-
-
 }
 
-html:has(input[value="roze"]:checked){
-    --active-color: "roze";
+main:has(input[value="roze"]:checked) {
+    --active-color: roze;
 }
 
-html:has(input[value="rood"]:checked){
-    --active-color: "rood";
+html:has(input[value="rood"]:checked) {
+    --active-color: rood;
 }
-html:has(input[value="geel"]:checked){
-    --active-color: "geel";
+
+html:has(input[value="geel"]:checked) {
+    --active-color: geel;
 }
-html:has(input[value="blauw"]:checked){
-    --active-color: "blauw";
+
+html:has(input[value="blauw"]:checked) {
+    --active-color: blauw;
 }
 
 
 
-html:has(input[value="roze"]:checked) article > div > div {
+html:has(input[value="roze"]:checked) article>div>div {
     background-color: var(--roze);
     /* --active-color: roze;  */
 }
@@ -179,47 +193,65 @@ html:has(input[value="blue"]:checked) article>div>div {
     /* --active-color: blauw ;  */
 }
 
-/* @container style(--active-color: blauw){
-    article{
-        transform: rotate(180deg);
+/* container queries */
+/* variabel is aangemaakt in de root en wordt hier 
+aangesproken wanneer deze veranderd */
+@container style(--active-color: geel) {
+    article {
+        animation: jump 0.5s infinite;
+        /* background-color: yellow; */
     }
-   
-} */
 
-@container style(--active-color: geel){
-    article{
-        animation: jump 0.5 ease-in-out;
-        background-color: yellow;
+    h1 {
+        color: red;
     }
-   
+
 }
 
-@container style(--active-color: roze){
-   article{
-    background-color: pink;
-}
-}
-
-@container style(--active-color: blauw){
-    article{
-     background-color: blue;
- }
- }
-
- @container style(--active-color: rood){
-    article{
-     background-color: red;
- }
- }
-
-
-@keyframes jump {
-    0%, 100% {
-        transform: translateY(0);
+@container style(--active-color: roze) {
+    label {
+        animation: happy .8s forwards
     }
-    50% {
-        transform: translateY(2em);
+
+}
+
+@container style(--active-color: blauw) {
+
+    h1 {
+        color: black;
     }
+
+}
+
+@container style(--active-color: rood) {
+
+
+
+    /* keyframes */
+    @keyframes jump {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-2em);
+        }
+    }
+
+    @keyframes happy {
+
+        0%,
+        100% {
+            transform: rotateX(0deg);
+        }
+
+        50% {
+            transform: rotateX(180deg);
+        }
+    }
+
 }
 
 
@@ -235,7 +267,7 @@ article {
     align-items: center;
     width: 17em;
 
-    >div {
+    div {
         /* container-type: inline-size; */
         width: 100%;
         flex: 1;
@@ -376,11 +408,12 @@ article>div>section:nth-of-type(1) {
             background-color: black;
             position: absolute;
 
-           
+
         }
 
     }
 
+    /* strik */
     aside {
         position: absolute;
         top: -5%;
@@ -392,7 +425,8 @@ article>div>section:nth-of-type(1) {
 
         /* box-shadow: inset 0 -4px 6px rgb(225, 105, 105); */
 
-        &::before, &::after{
+        &::before,
+        &::after {
             content: "";
             position: absolute;
             width: 55px;
@@ -400,31 +434,31 @@ article>div>section:nth-of-type(1) {
             background: red;
             box-shadow: inset inset 0 -4px 6px rgb(225, 105, 105)2;
         }
-    &::before{
-        left: -150%;
-        top: -40%;
-        transform: rotate(8deg);
-        border-radius: 21% 70% 64% 20% / 40% 53% 45% 38%;
+
+        &::before {
+            left: -150%;
+            top: -40%;
+            transform: rotate(8deg);
+            border-radius: 21% 70% 64% 20% / 40% 53% 45% 38%;
+
+        }
+
+        &::after {
+            right: -150%;
+            top: -10%;
+            transform: rotate(15deg);
+            border-radius: 69% 16% 36% 58% / 52% 22% 28% 44%
+        }
 
     }
 
-    &::after{
-        right: -150%;
-        top: -10%;
-        transform: rotate(15deg);
-        border-radius: 69% 16% 36% 58% / 52% 22% 28% 44%
-    }
 
- }
-
-
-} 
-
+}
 
 
 
 /* lichaam */
-article > div > section:nth-of-type(2) {
+article>div>section:nth-of-type(2) {
     position: absolute;
     left: 50%;
     translate: -50% 0;
@@ -438,27 +472,27 @@ article > div > section:nth-of-type(2) {
 
 
     /* voeten */
-    footer{
+    footer {
         position: absolute;
         /* top:-100%; */
         bottom: -30%;
         left: 10%;
-        width: 40% ;
+        width: 40%;
         height: 55px;
         /* z-index: -1; */
         background-color: white;
         border-radius: 0 0 30% 30%;
         box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
 
-      
+
     }
 
-    footer:nth-of-type(2){
+    footer:nth-of-type(2) {
         left: 50%;
     }
 
     /* armen */
-    label  {
+    label {
         position: absolute;
         width: 20%;
         height: 70px;
@@ -466,28 +500,19 @@ article > div > section:nth-of-type(2) {
         background-color: white;
     }
 
-    label:nth-of-type(1){
+    label:nth-of-type(1) {
         left: -20%;
         border-radius: 75% 0% 10% 46% / 85% 81% 10% 24%;
         box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
 
-    label:nth-of-type(2){
+    label:nth-of-type(2) {
         right: -20%;
         border-radius: 0% 58% 71% 0% / 10% 54% 24% 0%;
         box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
 
 }
-
-
-
-
-
-
-/* jurkje */
-
-
 
 
 /* wereldbol */
@@ -498,8 +523,8 @@ body>div:nth-of-type(1) {
     margin: auto;
 
     position: absolute;
-    top: 36em;
-    /* left: 5em; */
+    bottom: -10em;
+
     /* margin-top: 140px; */
     background-color: white;
     border-radius: 50%;
@@ -520,12 +545,12 @@ body>div:nth-of-type(1) {
 body>section:nth-of-type(2) {
     /* background-color: chartreuse; */
     position: absolute;
-    right: 8em;
-    top: 4em;
+    right: 2em;
+    top: 2em;
 
 }
 
-
+/* styling van slider */
 body>section:nth-of-type(2) input {
     appearance: none;
     font: inherit;
@@ -590,40 +615,96 @@ body:has(input[type="checkbox"]:checked) {
 
 
     background-image: var(--background);
+    transition: 2s ease-in;
+
+    h1 {
+        color: black;
+        text-shadow:
+            1px 1px 2px rgb(109, 31, 172),
+            0 0 2em rgb(30, 177, 121),
+            0 0 0.2em rgb(143, 212, 237);
+        z-index: 1;
+    }
+
+    section:nth-of-type(3) li:nth-of-type(1) {
+        display: none;
+        animation: flyAway 1s ease;
+    }
+
+    section:nth-of-type(3) li:nth-of-type(2) {
+        display: flex;
+        animation: fadeIn .5s ease;
+    }
 
 }
 
+@keyframes flyAway {
+    0% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
 
-body>section:nth-of-type(3) li:nth-of-type(1) {
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* zon en maan */
+body>section:nth-of-type(3) li {
     position: absolute;
-    top: 2em;
-    left: -1em;
-
     width: 6em;
     height: 6em;
+    border-radius: 50%;
+
+}
+
+/* zonnetje */
+body>section:nth-of-type(3) li:nth-of-type(1) {
+
+    top: 2em;
+    left: 2em;
+
     background: radial-gradient(circle 500px at 50% 50%,
             #F09819 0%,
             #EDDE5D 22%);
 
     list-style-type: none;
     border-radius: 50%;
+    animation: none;
+    z-index: 1;
 }
 
+
+/* maantje */
 body>section:nth-of-type(3) li:nth-of-type(2) {
 
     position: absolute;
     top: 2em;
-    left: -10em;
+    left: 2em;
 
-    width: 6em;
-    height: 6em;
+    display: none;
+    /* width: 6em;
+    height: 6em; */
     background: radial-gradient(circle 500px at 50% 50%,
             rgb(90, 90, 136) 0%,
             lightblue 22%);
 
     list-style-type: none;
     border-radius: 50%;
+    z-index: 0;
 
 }
 

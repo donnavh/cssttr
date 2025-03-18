@@ -35,3 +35,9 @@ Om aan te werken:
  - werken met de typografie van de titel, dat deze iets meer meedoet aan het gevoel van de pagina
 
 
+Afronding: 
+In de laatste week en paar dagen heb ik nog een aantal grote stappen kunnen zetten, in het laatste gesprek zag ik ook dat de content die in de pagina stond goed was en goed werkte alleen het was vrij statisch en er gebeurde vrij weinig. 
+- Afgelopen dagen heb ik eerst de indeling van mijn html even goed bekeken en gereorganiseerd. Ik kwam erachter dat als ik wilde gaan animeen dat dit lastig zou gaan omdat niet alles in een zelfde element zat waardoor het niet als één geheel zou gaan bewegen. Toen heb ik ervoor gezorgd dat dus de oren in het hoofd vallen en de armen in het lichaam zodat alles een geheel word. Dit was nog even een gedoe en moest ik veel CSS gaan aanpassen omdat veel elementen niet meer goed aangesproken werden. Maar toen dit opgelost was kon ik gelukkig makkelijk gaan beginnen met animeren. 
+- vervolgens ben ik aan de slag gegaan met de style queries die voor mij nog best lastig waren. Om deze te testen ben ik begonnen met een variable aan te maken en deze een kleur te geven als iets aanpast om te bekijken. Na veel uitproberen en nadenken is het gelukt om dat wanneer de waarde van de input voor het shirt veranderd er verschillende dingen gebeuren. 
+- Ook heb ik een zon en maan ingevoegd en de maan die met een animatie op komt voor meer een gevoel van nacht
+- een passende typografie voor de pagina die ook mee schaalt 
