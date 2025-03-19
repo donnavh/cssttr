@@ -1,5 +1,4 @@
 :root {
-    /* color-scheme: light dark; */
 
     --background: repeating-radial-gradient(ellipse 80% 100% at 48% 63%,
             #c7eafd 0%,
@@ -10,6 +9,7 @@
     --rood: red;
     --blauw: blue;
     --zwart: black;
+    /* actieve kleur standaard ingesteld op roze, dit variabel wordt later aangeroepen voor de container queries */
     --active-color: roze;
 }
 
@@ -67,7 +67,6 @@ body>section:nth-of-type(1) {
     body>section:nth-of-type(1) {
         width: 8em;
         background-color: white;
-        /* border-radius: 50%; */
     }
 
     body>section:nth-of-type(1) input {
@@ -103,7 +102,7 @@ section:nth-of-type(1) input {
     margin: .5em;
     cursor: pointer;
 
-    /* border-radius: 50%; */
+    /* nesting, wanneer de input checked is komt er een box shadow */
     &:checked {
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 80px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
@@ -111,6 +110,9 @@ section:nth-of-type(1) input {
 }
 
 
+/* aangeven dat de achtergrond kleur veranderd als de input veranderd, 
+variabel opnieuw aangesproken zodat dit werkt met de container/ style queries 
+en ik laat weten wat waarbij hoort*/
 body>section:nth-of-type(1) {
     input[value="geel"] {
         background-color: var(--geel);
@@ -155,7 +157,7 @@ article>div>div {
 }
 
 
-
+/* variable veranderd en krijgt een waarde */
 html:has(input[value="geel"]:checked) article>div>div {
     background-color: var(--geel);
 }
@@ -176,7 +178,7 @@ html:has(input[value="blauw"]:checked) {
     --active-color: blauw;
 }
 
-
+/* jurkje veranderd van kleur als deze input is veranderd */
 
 html:has(input[value="roze"]:checked) article>div>div {
     background-color: var(--roze);
@@ -199,7 +201,7 @@ aangesproken wanneer deze veranderd */
 @container style(--active-color: geel) {
     article {
         animation: jump 0.5s infinite;
-        /* background-color: yellow; */
+        /* animatie voor springen */
     }
 
     h1 {
@@ -215,6 +217,8 @@ aangesproken wanneer deze veranderd */
 
 }
 
+/* wanneer de actieve kleur in de eerder aangesproken variable blauw is, 
+geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
 @container style(--active-color: blauw) {
 
     h1 {
@@ -525,10 +529,10 @@ body>div:nth-of-type(1) {
     position: absolute;
     bottom: -10em;
 
-    /* margin-top: 140px; */
+
     background-color: white;
     border-radius: 50%;
-
+    /* shaduw voor het 3d effect */
     box-shadow:
         inset 0 0 50px #fff,
         inset 20px 0 60px green,
@@ -543,7 +547,6 @@ body>div:nth-of-type(1) {
 
 /* checkbox voor light en dark */
 body>section:nth-of-type(2) {
-    /* background-color: chartreuse; */
     position: absolute;
     right: 2em;
     top: 2em;
@@ -552,6 +555,7 @@ body>section:nth-of-type(2) {
 
 /* styling van slider */
 body>section:nth-of-type(2) input {
+    /* standaardstijl verwijderen en aanpassen */
     appearance: none;
     font: inherit;
     margin: 0;
@@ -577,12 +581,10 @@ body>section:nth-of-type(2) input:checked {
 
     background-position: left;
     justify-content: right;
-    /* background-color: coral; */
 }
 
-
+/* styling slider */
 body>section:nth-of-type(2) input::after {
-
     content: "";
     display: block;
     height: 100%;
@@ -605,6 +607,7 @@ body>section:nth-of-type(2) input:checked::after {
 }
 
 
+/* aanspreken dat de achtergrond veranderd als de slider van dag naar nacht gaat */
 body:has(input[type="checkbox"]:checked) {
 
     --background: radial-gradient(ellipse 80% 91% at 51% 76%,
@@ -626,9 +629,10 @@ body:has(input[type="checkbox"]:checked) {
         z-index: 1;
     }
 
+
     section:nth-of-type(3) li:nth-of-type(1) {
         display: none;
-        animation: flyAway 1s ease;
+        
     }
 
     section:nth-of-type(3) li:nth-of-type(2) {
@@ -638,18 +642,7 @@ body:has(input[type="checkbox"]:checked) {
 
 }
 
-@keyframes flyAway {
-    0% {
-        opacity: 1;
-        transform: scale(0.5);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1);
-    }
-}
-
+/* keyframes voor de animatie  */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -680,7 +673,8 @@ body>section:nth-of-type(3) li:nth-of-type(1) {
     background: radial-gradient(circle 500px at 50% 50%,
             #F09819 0%,
             #EDDE5D 22%);
-
+    box-shadow: 0 0 30px white;
+ 
     list-style-type: none;
     border-radius: 50%;
     animation: none;
@@ -696,12 +690,11 @@ body>section:nth-of-type(3) li:nth-of-type(2) {
     left: 2em;
 
     display: none;
-    /* width: 6em;
-    height: 6em; */
+
     background: radial-gradient(circle 500px at 50% 50%,
             rgb(90, 90, 136) 0%,
             lightblue 22%);
-
+    box-shadow: 0 0 20px white;
     list-style-type: none;
     border-radius: 50%;
     z-index: 0;
@@ -709,9 +702,7 @@ body>section:nth-of-type(3) li:nth-of-type(2) {
 }
 
 
-/* html:has(input[value="blue"]:checked) article > div {
-    background-color: blue;
-} */
+
 
 /* Bron:https://codepen.io/jpbarth/pen/VyyegV  */
 

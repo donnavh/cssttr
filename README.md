@@ -41,3 +41,9 @@ In de laatste week en paar dagen heb ik nog een aantal grote stappen kunnen zett
 - vervolgens ben ik aan de slag gegaan met de style queries die voor mij nog best lastig waren. Om deze te testen ben ik begonnen met een variable aan te maken en deze een kleur te geven als iets aanpast om te bekijken. Na veel uitproberen en nadenken is het gelukt om dat wanneer de waarde van de input voor het shirt veranderd er verschillende dingen gebeuren. 
 - Ook heb ik een zon en maan ingevoegd en de maan die met een animatie op komt voor meer een gevoel van nacht
 - een passende typografie voor de pagina die ook mee schaalt 
+
+Eindproduct: 
+Na veel dingen proberen en tegen mezelf aanlopen heb ik naar mijn idee een leuk control panel die verschillende dingen kan aanroepen. - Met behulp van style queries en het proberen en aanmaken van variable om een functie te kunnen aanroepen heb ik er voor gezorgd dat er een animatie kan komen wanneer er een bepaalde input wordt aangeroepen. 
+- Met behulp van media queries heb ik ervoor gezorgd dat sommige elementen kleiner worden als het scherm dit ook wordt zodat het goed in verhouding blijft 
+- de animatie met een bepaalde kleur is gelukt 
+- met behulp van has krijgt de background een andere waarde
