@@ -201,9 +201,11 @@ html:has(input[value="blue"]:checked) article>div>div {
     }
 }
 
-/* style queries regelen
+/* ///////////////////////*
+style queries regelen
 netter maken, structuur 
-wereldbol  */
+wereldbol  
+////////////////////*/
 
 /* container queries */
 /* variabel is aangemaakt in de root en wordt hier 
