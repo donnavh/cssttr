@@ -191,9 +191,19 @@ html:has(input[value="rood"]:checked) article>div>div {
 }
 
 html:has(input[value="blue"]:checked) article>div>div {
-    background-color: var(--blauw);
+    /* background-color: var(--blauw); */
     /* --active-color: blauw ;  */
 }
+
+@container style(--active-color: blauw) {
+    article > div > div{
+        background-color: blue;
+    }
+}
+
+/* style queries regelen
+netter maken, structuur 
+wereldbol  */
 
 /* container queries */
 /* variabel is aangemaakt in de root en wordt hier 
@@ -209,6 +219,8 @@ aangesproken wanneer deze veranderd */
     }
 
 }
+
+
 
 @container style(--active-color: roze) {
     label {
