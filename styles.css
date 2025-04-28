@@ -175,34 +175,6 @@ section:nth-of-type(1) input {
 }
 
 
-/* aangeven dat de achtergrond kleur veranderd als de input veranderd, 
-variabel opnieuw aangesproken zodat dit werkt met de container/ style queries 
-en ik laat weten wat waarbij hoort*/
-body>section:nth-of-type(1) {
-
-    input[value="geel"]{
-        background-color: var(--geel);
-        --active-color: geel;
-    }
-
-    input[value="roze"] {
-        background-color: var(--roze);
-        --active-color: roze;
-    }
-
-
-    input[value="rood"] {
-        background-color: var(--rood);
-        --active-color: rood;
-    }
-
-    input[value="blauw"] {
-        background-color: var(--blauw);
-        --active-color: blauw;
-    }
-
-}
-
 
 /* jurkje */
 article>div>div {
@@ -230,48 +202,57 @@ article>div>div {
 }
 
 
-/* variable veranderd en krijgt een waarde */
-html:has(input[value="geel"]:checked) article>div>div {
-    background-color: var(--geel);
+
+/* aangeven dat de achtergrond kleur veranderd als de input veranderd, 
+variabel opnieuw aangesproken zodat dit werkt met de container/ style queries 
+en ik laat weten wat waarbij hoort*/
+
+body>section:nth-of-type(1) {
+
+    input[value="geel"] {
+        background-color: var(--geel);
+    }
+
+    input[value="roze"] {
+        background-color: var(--roze);
+    }
+
+    input[value="rood"] {
+        background-color: var(--rood);
+        --active-color: rood;
+    }
+
+    input[value="blauw"] {
+        background-color: var(--blauw);
+        --active-color: blauw;
+    }
 }
 
-main:has(input[value="roze"]:checked) article>div>div {
-    /* --active-color: roze; */
-    background-color: var(--roze);
-}
 
-html:has(input[value="rood"]:checked) article>div>div {
-    /* --active-color: rood; */
-    background-color: var(--rood);
+/* variable veranderd en krijgt een waarde, jurkje veranderd van kleur als de waarde veranderd */
 
-}
 
-html:has(input[value="geel"]:checked) article>div>div{
-    /* --active-color: geel; */
-    background-color: var(--geel);
-}
-
-html:has(input[value="blauw"]:checked) article>div>div{
-    /* --active-color: blauw; */
-    background-color: var(--blauw);
-}
-
-/* jurkje veranderd van kleur als deze input is veranderd */
-
-/* html:has(input[value="roze"]:checked) article>div>div {
-    background-color: var(--roze);
-    
-}
-
-html:has(input[value="rood"]:checked) article>div>div {
-    background-color: var(--rood);
-    
-}
-
-html:has(input[value="blue"]:checked) article>div>div {
-    background-color: var(--blauw);
-    --active-color: blauw ; 
+/* Pink button selected - waving arms animation */
+/* html:has(input[value="roze"]:checked) article > div > section:nth-of-type(2) label {
+    animation: wave 0.8s infinite alternate;
 } */
+
+html:has(input[value="geel"]:checked) {
+    --active-color:geel;
+}
+
+html:has(input[value="roze"]:checked) {
+--active-color: roze;
+} 
+
+/* Red button selected */
+html:has(input[value="rood"]:checked) {
+--active-color: rood;
+}
+
+html:has(input[value="blauw"]:checked) {
+    --active-color: blauw; 
+}
 
 
 
@@ -284,29 +265,36 @@ wereldbol
 /* container queries */
 /* variabel is aangemaakt in de root en wordt hier 
 aangesproken wanneer deze veranderd */
-@container style(--active-color: geel) {
-    article {
-        /* animation: bounce 1s infinite; */
-        animation: jump 0.5s infinite;
-        /* animatie voor springen */
+
+@container style(--active-color: geel){
+    article>div{
+        animation: bounce 1s infinite;
     }
-
-    h1 {
-        color: var(--rood);
+    article>div>div{
+        background-color: var(--geel);
     }
-
-    /* article{
-        animation: jump 1s infinite ease-in-out;
-    } */
-
+    h1{
+        background-color: var(--geel);
+    }
 }
 
+
+
 @container style(--active-color: roze) {
-    label {
-        /* animation: happy .8s forwards */
+    article>div>div{
+        background-color: var(--roze);
+    }
+    article>div>section>label{
         animation: wave .8s forwards;
     }
 
+    
+}
+
+@container style(--active-color: rood){
+    article>div>div{
+        background-color: var(--rood);
+    }
 }
 
 @container style(--active-color: blauw) {
@@ -314,27 +302,15 @@ aangesproken wanneer deze veranderd */
         background-color: var(--blauw);
     }
     h1{
-        color: var(--rood);
+        background-color: var(--rood);
     }
 }
 
 /* wanneer de actieve kleur in de eerder aangesproken variable blauw is, 
 geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
 
-
-/* @container style(--active-color: blauw) {
-
-    h1 {
-        color: black;
-    }
-} */
-
-/* @container style(--active-color: rood) {
-
-} */
-
     /* keyframes */
-    @keyframes jump {
+    @keyframes bounce {
 
         0%,
         100% {
@@ -358,10 +334,18 @@ geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
         }
     }
 
+/* keyframes voor de animatie  */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 
-
-
-
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 
 /* hele hello kitty  */
@@ -376,6 +360,7 @@ article {
     height: auto;
     max-width: 100%;
     padding: 2em;
+    container-type:inline-size;
 
     div {
         /* container-type: inline-size; */
@@ -724,18 +709,7 @@ body:has(input[type="checkbox"]:checked) {
 
 }
 
-/* keyframes voor de animatie  */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
 
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
 
 /* zon en maan */
 body>section:nth-of-type(3) li {
