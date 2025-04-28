@@ -47,3 +47,7 @@ Na veel dingen proberen en tegen mezelf aanlopen heb ik naar mijn idee een leuk 
 - Met behulp van media queries heb ik ervoor gezorgd dat sommige elementen kleiner worden als het scherm dit ook wordt zodat het goed in verhouding blijft 
 - de animatie met een bepaalde kleur is gelukt 
 - met behulp van has krijgt de background een andere waarde
+
+
+# Herkansing 
+Na het eindgesprek was mijn product toch nog niet helemaal af en wat het zou kunnen zijn. Het product was toch niet helemaal goed mee aan het schalen dus de pagina ging erg raar laden wanneer deze groter of kleiner gemaakt werd. Dus ga ik het nog proberen te verbeteren en proberen beter toe te lichten wat mijn gedachtegang is geweest tijdens het ontwerpen

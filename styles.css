@@ -1,16 +1,21 @@
 :root {
 
-    --background: repeating-radial-gradient(ellipse 80% 100% at 48% 63%,
+    /* --background: radial-gradient(ellipse 80% 100% at 48% 63%,
             #c7eafd 0%,
-            #e8198b 100%);
+            #e8198b 100%); */
+
+    --background: linear-gradient(to bottom, #ffe6f2 0%,
+        #ffb6d9 100%);
     --hello-kitty: white;
-    --geel: hsl(56, 100%, 82%);
-    --roze: pink;
-    --rood: red;
-    --blauw: blue;
+    --geel: #fff68f;
+    --roze: #ff85b3;
+    --rood: #ff0066;
+    --blauw: #85d6ff;
     --zwart: black;
+    --bow-color: #ff0066;
     /* actieve kleur standaard ingesteld op roze, dit variabel wordt later aangeroepen voor de container queries */
     --active-color: roze;
+
 }
 
 
@@ -18,32 +23,40 @@
 body {
     display: flex;
 
-    background: repeating-radial-gradient(ellipse 80% 100% at 48% 63%,
+    background: var(--background);
+    /* background: repeating-radial-gradient(ellipse 80% 100% at 48% 63%,
             #c7eafd 0%,
-            #e8198b 100%);
-
+            #e8198b 100%); */
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position: center center;
     height: 100vh;
-
+    width: 100vw;
     padding: 0;
     margin: 0;
     justify-content: center;
     align-items: center;
     overflow: clip;
-
+    font-family: "Comic Sans MS", cursive, sans-serif; 
 }
 
 
 h1 {
     position: fixed;
-    top: 2em;
-    color: whitesmoke;
+    top: 1em;
+    /* color: whitesmoke; */
+    color: var(--roze);
     font-family: "Caprasimo";
-    text-shadow:
+    /* text-shadow:
         1px 1px 2px royalblue,
         0 0 2em blueviolet,
-        0 0 0.2em violet;
+        0 0 0.2em violet; */
+
+    text-shadow: 
+        1px 1px 0px white,
+        2px 2px 0px var(--rood);
     font-weight: 400;
-    font-size: 2em;
+    font-size: 8vw;
 }
 
 /* control panel */
@@ -56,14 +69,19 @@ body>section:nth-of-type(1) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid var(--roze);
+    box-shadow: 0 5px 15px rgba(255, 133, 179, 0.3);
 
-    background-color: rgb(0, 0, 0);
-    padding: 0;
+    /* background-color: rgb(0, 0, 0); */
+    /* padding: 0; */
 
 
 }
 
-@media (min-width: 575px) {
+@media (min-width: 750px) {
     body>section:nth-of-type(1) {
         width: 8em;
         background-color: white;
@@ -71,23 +89,58 @@ body>section:nth-of-type(1) {
 
     body>section:nth-of-type(1) input {
         width: 7em;
-        background-color: #e8198b;
+        background-color: var(--roze);
     }
 
-    body>section:nth-of-type(3) li:nth-of-type(1) {
+    body>section:nth-of-type(3) li:nth-of-type(1),
+    body>section:nth-of-type(3) li:nth-of-type(2){
         width: 12em;
         height: 12em;
     }
 
-    body>section:nth-of-type(3) li:nth-of-type(2) {
-        width: 12em;
-        height: 12em;
+    body>section:nth-of-type(2) input{
+        width: 14em;
+        height: 6em;
     }
 
-    h1 {
-        font-size: 3em;
+    body>section:nth-of-type(2) input::after{
+        width: 5em;
+        background-position: right;
+        width: 50%;
     }
 
+    body>section:nth-of-type(2) input:checked::after {
+        translate: 7em;
+    }
+
+}
+
+
+@media (max-width: 750px){
+    body>section:nth-of-type(1){
+        width: 4em;
+        padding: 10px;
+    }
+    body>section:nth-of-type(1) input{
+        width: 80%;
+    }
+
+    body>section:nth-of-type(3) li{
+        width: 5em;
+        height: 5em;
+    }
+    body>section:nth-of-type(2) input{
+        width: 7em;
+        height: 3em;
+    }
+
+    body>section:nth-of-type(2) input::after{
+        /* width: 2.5em; */
+        width: 40%;
+    }
+    body>section:nth-of-type(2) input:checked::after {
+        translate: 4em;
+    }
 }
 
 
@@ -101,10 +154,22 @@ section:nth-of-type(1) input {
     height: 2em;
     margin: .5em;
     cursor: pointer;
-
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3 ease;
     /* nesting, wanneer de input checked is komt er een box shadow */
     &:checked {
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 80px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+         box-shadow: 
+            0 0 0 3px white,
+            0 0 0 5px var(--roze),
+            inset 0 0 8px rgba(255, 0, 102, 0.5);
+        transform: scale(1.1);
+
+    }
+
+    &:hover {
+        transform: scale(1.1);
     }
 
 }
@@ -114,7 +179,8 @@ section:nth-of-type(1) input {
 variabel opnieuw aangesproken zodat dit werkt met de container/ style queries 
 en ik laat weten wat waarbij hoort*/
 body>section:nth-of-type(1) {
-    input[value="geel"] {
+
+    input[value="geel"]{
         background-color: var(--geel);
         --active-color: geel;
     }
@@ -127,10 +193,12 @@ body>section:nth-of-type(1) {
 
     input[value="rood"] {
         background-color: var(--rood);
+        --active-color: rood;
     }
 
     input[value="blauw"] {
         background-color: var(--blauw);
+        --active-color: blauw;
     }
 
 }
@@ -152,8 +220,13 @@ article>div>div {
         polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
     clip-path:
         polygon(20% 0%, 80% 0%, 100% 84%, 0 84%);
-
     /* Bron: https://easycodetools.com/tool/cssclippath-generator */
+
+     /* Add polka dots pattern to the dress */
+     background-image: radial-gradient(white 10%, transparent 11%), 
+     radial-gradient(white 10%, transparent 11%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
 }
 
 
@@ -162,44 +235,45 @@ html:has(input[value="geel"]:checked) article>div>div {
     background-color: var(--geel);
 }
 
-main:has(input[value="roze"]:checked) {
-    --active-color: roze;
+main:has(input[value="roze"]:checked) article>div>div {
+    /* --active-color: roze; */
+    background-color: var(--roze);
 }
 
-html:has(input[value="rood"]:checked) {
-    --active-color: rood;
+html:has(input[value="rood"]:checked) article>div>div {
+    /* --active-color: rood; */
+    background-color: var(--rood);
+
 }
 
-html:has(input[value="geel"]:checked) {
-    --active-color: geel;
+html:has(input[value="geel"]:checked) article>div>div{
+    /* --active-color: geel; */
+    background-color: var(--geel);
 }
 
-html:has(input[value="blauw"]:checked) {
-    --active-color: blauw;
+html:has(input[value="blauw"]:checked) article>div>div{
+    /* --active-color: blauw; */
+    background-color: var(--blauw);
 }
 
 /* jurkje veranderd van kleur als deze input is veranderd */
 
-html:has(input[value="roze"]:checked) article>div>div {
+/* html:has(input[value="roze"]:checked) article>div>div {
     background-color: var(--roze);
-    /* --active-color: roze;  */
+    
 }
 
 html:has(input[value="rood"]:checked) article>div>div {
     background-color: var(--rood);
-    /* --active-color: rood; */
+    
 }
 
 html:has(input[value="blue"]:checked) article>div>div {
-    /* background-color: var(--blauw); */
-    /* --active-color: blauw ;  */
-}
+    background-color: var(--blauw);
+    --active-color: blauw ; 
+} */
 
-@container style(--active-color: blauw) {
-    article > div > div{
-        background-color: blue;
-    }
-}
+
 
 /* ///////////////////////*
 style queries regelen
@@ -212,38 +286,52 @@ wereldbol
 aangesproken wanneer deze veranderd */
 @container style(--active-color: geel) {
     article {
+        /* animation: bounce 1s infinite; */
         animation: jump 0.5s infinite;
         /* animatie voor springen */
     }
 
     h1 {
-        color: red;
+        color: var(--rood);
+    }
+
+    /* article{
+        animation: jump 1s infinite ease-in-out;
+    } */
+
+}
+
+@container style(--active-color: roze) {
+    label {
+        /* animation: happy .8s forwards */
+        animation: wave .8s forwards;
     }
 
 }
 
-
-
-@container style(--active-color: roze) {
-    label {
-        animation: happy .8s forwards
+@container style(--active-color: blauw) {
+    article > div > div{
+        background-color: var(--blauw);
     }
-
+    h1{
+        color: var(--rood);
+    }
 }
 
 /* wanneer de actieve kleur in de eerder aangesproken variable blauw is, 
 geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
-@container style(--active-color: blauw) {
+
+
+/* @container style(--active-color: blauw) {
 
     h1 {
         color: black;
     }
+} */
 
-}
+/* @container style(--active-color: rood) {
 
-@container style(--active-color: rood) {
-
-
+} */
 
     /* keyframes */
     @keyframes jump {
@@ -258,7 +346,7 @@ geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
         }
     }
 
-    @keyframes happy {
+    @keyframes wave {
 
         0%,
         100% {
@@ -270,7 +358,7 @@ geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
         }
     }
 
-}
+
 
 
 
@@ -279,11 +367,15 @@ geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
 /* hele hello kitty  */
 article {
     /* --active-color: var(--blauw); */
-    position: relative;
+    /* position: relative; */
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 17em;
+    height: auto;
+    max-width: 100%;
+    padding: 2em;
 
     div {
         /* container-type: inline-size; */
@@ -300,13 +392,15 @@ article>div>section:nth-of-type(1) {
     height: 180px;
     border-radius: 50% / 60%;
     background: var(--hello-kitty);
-    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 
+    inset 0 -5px 10px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(255, 133, 179, 0.3);
 
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-
 
     /* oren */
     header,
@@ -323,9 +417,8 @@ article>div>section:nth-of-type(1) {
     header {
         left: 0%;
         transform: rotate(-20deg);
-
         border-radius: 53% 46% 15% 10% / 86% 88% 13% 13%;
-        box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.1);
     }
 
     /* rechteroor */
@@ -333,7 +426,7 @@ article>div>section:nth-of-type(1) {
         right: 0%;
         transform: rotate(20deg);
         border-radius: 53% 46% 15% 10% / 86% 88% 13% 13%;
-        box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.1);
     }
 
     /* ogen */
@@ -344,7 +437,7 @@ article>div>section:nth-of-type(1) {
         display: flex;
         justify-content: space-between;
         position: absolute;
-        width: 50%;
+        width: 55%;
 
         /* ogen */
         li {
@@ -420,13 +513,10 @@ article>div>section:nth-of-type(1) {
 
 
         span {
-
             width: 45px;
-            height: 3px;
+            height: 2px;
             background-color: black;
             position: absolute;
-
-
         }
 
     }
@@ -435,22 +525,20 @@ article>div>section:nth-of-type(1) {
     aside {
         position: absolute;
         top: -5%;
-        right: 10%;
-        width: 30px;
+        right: 7%;
+        width: 35px;
         height: 40px;
-        background-color: red;
+        background-color: var(--bow-color);
         border-radius: 50%;
-
-        /* box-shadow: inset 0 -4px 6px rgb(225, 105, 105); */
 
         &::before,
         &::after {
             content: "";
             position: absolute;
-            width: 55px;
-            height: 60px;
-            background: red;
-            box-shadow: inset inset 0 -4px 6px rgb(225, 105, 105)2;
+            width: 60px;
+            height: 65px;
+            background: var(--bow-color);
+            /* box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2); */
         }
 
         &::before {
@@ -467,10 +555,7 @@ article>div>section:nth-of-type(1) {
             transform: rotate(15deg);
             border-radius: 69% 16% 36% 58% / 52% 22% 28% 44%
         }
-
     }
-
-
 }
 
 
@@ -482,7 +567,6 @@ article>div>section:nth-of-type(2) {
     translate: -50% 0;
     width: 50%;
     height: 120px;
-
     background: white;
     border-radius: 30% 30% 0 0;
     /* border-radius:30% 28% 10% 10% / 73% 76% 10% 10% ;  */
@@ -492,12 +576,10 @@ article>div>section:nth-of-type(2) {
     /* voeten */
     footer {
         position: absolute;
-        /* top:-100%; */
         bottom: -30%;
         left: 10%;
         width: 40%;
         height: 55px;
-        /* z-index: -1; */
         background-color: white;
         border-radius: 0 0 30% 30%;
         box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
@@ -516,18 +598,19 @@ article>div>section:nth-of-type(2) {
         height: 70px;
         bottom: 20%;
         background-color: white;
+        transition: all 0.3s ease;
     }
 
     label:nth-of-type(1) {
         left: -20%;
         border-radius: 75% 0% 10% 46% / 85% 81% 10% 24%;
-        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
 
     label:nth-of-type(2) {
         right: -20%;
         border-radius: 0% 58% 71% 0% / 10% 54% 24% 0%;
-        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
 
 }
@@ -535,28 +618,25 @@ article>div>section:nth-of-type(2) {
 
 /* wereldbol */
 body>div:nth-of-type(1) {
-    width: 250px;
-    height: 250px;
-
+    aspect-ratio: 1/1;
+    height: 40vh;
     margin: auto;
-
     position: absolute;
     bottom: -10em;
-
-
     background-color: white;
     border-radius: 50%;
     /* shaduw voor het 3d effect */
+    
     box-shadow:
         inset 0 0 50px #fff,
-        inset 20px 0 60px green,
+        inset 20px 0 60px lightgreen,
         inset -20px 0 60px blue,
-        inset 20px 0 300px green,
+        inset 20px 0 300px lightgreen,
         inset -20px 0 300px blue,
         0 0 50px #fff,
-        -10px 0 60px green,
+        -10px 0 60px lightgreen,
         10px 0 60px blue;
-
+    
 }
 
 /* checkbox voor light en dark */
@@ -564,7 +644,6 @@ body>section:nth-of-type(2) {
     position: absolute;
     right: 2em;
     top: 2em;
-
 }
 
 /* styling van slider */
@@ -573,26 +652,21 @@ body>section:nth-of-type(2) input {
     appearance: none;
     font: inherit;
     margin: 0;
-
-    width: 7em;
-    height: 3em;
+    /* width: 7em;
+    height: 3em; */
     padding: .25em;
-
     background-image: linear-gradient(to left,
-            rgb(108, 194, 223) 50%,
-            midnightblue 0);
+    #301934 50%,
+    #ef88ba 0);
 
     background-size: calc(200% - 3em) 100%;
     background-position: right;
     border-radius: 1em;
-    box-shadow: inset .25em .25em .25em .1em #0009;
-
+    box-shadow: inset .25em .25em .25em .1em rgba(0,0,0,0.3);
     transition: .2s ease-in;
-
 }
 
 body>section:nth-of-type(2) input:checked {
-
     background-position: left;
     justify-content: right;
 }
@@ -602,13 +676,12 @@ body>section:nth-of-type(2) input::after {
     content: "";
     display: block;
     height: 100%;
-
     aspect-ratio: 1;
-    background-color: gold;
+    /* background-color: gold; */
+    background-color: white;
     background-image: radial-gradient(gold,
             yellow);
-    border-radius: 2em;
-
+    border-radius: 50%;
     box-shadow:
         inset -.25em -.25em .25em gold;
 
@@ -616,30 +689,25 @@ body>section:nth-of-type(2) input::after {
 
 }
 
-body>section:nth-of-type(2) input:checked::after {
+/* body>section:nth-of-type(2) input:checked::after {
     translate: 4em;
-}
+} */
 
 
 /* aanspreken dat de achtergrond veranderd als de slider van dag naar nacht gaat */
 body:has(input[type="checkbox"]:checked) {
-
-    --background: radial-gradient(ellipse 80% 91% at 51% 76%,
-            #dbdcd7 0%, #dddcd7 24%,
-            #e2c9cc 30%, #e7627d 46%,
-            #b8235a 59%, #801357 71%,
-            #3d1635 84%, #1c1a27 100%);
-
+    --background: linear-gradient(to bottom, #301934 0%, #663399 100%);
 
     background-image: var(--background);
     transition: 2s ease-in;
 
     h1 {
-        color: black;
-        text-shadow:
-            1px 1px 2px rgb(109, 31, 172),
-            0 0 2em rgb(30, 177, 121),
-            0 0 0.2em rgb(143, 212, 237);
+        color: var(--roze);
+            text-shadow:
+            1px 1px 2px white,
+            0 0 1em var(--roze),
+            0 0 0.2em var(--rood);
+
         z-index: 1;
     }
 
@@ -683,16 +751,16 @@ body>section:nth-of-type(3) li:nth-of-type(1) {
 
     top: 2em;
     left: 2em;
-
     background: radial-gradient(circle 500px at 50% 50%,
-            #F09819 0%,
-            #EDDE5D 22%);
+    #FFD700 0%,
+    #FFFF66 70%);
     box-shadow: 0 0 30px white;
- 
+
     list-style-type: none;
     border-radius: 50%;
     animation: none;
     z-index: 1;
+    
 }
 
 
@@ -702,7 +770,6 @@ body>section:nth-of-type(3) li:nth-of-type(2) {
     position: absolute;
     top: 2em;
     left: 2em;
-
     display: none;
 
     background: radial-gradient(circle 500px at 50% 50%,
