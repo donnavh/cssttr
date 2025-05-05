@@ -194,6 +194,13 @@ netter maken, structuur
 wereldbol  
 ////////////////////*/
 
+@property --active-color {
+    syntax: "<ident>";
+    inherits: true;
+    initial-value: roze ;
+}
+
+
 
 /* container queries */
 /* variabel is aangemaakt in de root en wordt hier 
@@ -256,7 +263,7 @@ article {
     /* height: auto; */
     max-width: 100%;
     padding: 2em;
-    container-type:inline-size;
+    container-type: inline-size;
 
     div {
         /* container-type: inline-size; */
