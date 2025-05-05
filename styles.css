@@ -1,9 +1,5 @@
 :root {
 
-    /* --background: radial-gradient(ellipse 80% 100% at 48% 63%,
-            #c7eafd 0%,
-            #e8198b 100%); */
-
     --background: linear-gradient(to bottom, #ffe6f2 0%,
         #ffb6d9 100%);
     --hello-kitty: white;
@@ -50,7 +46,7 @@ h1 {
         2px 2px 0px var(--rood);
     font-weight: 400;
     font-size: 8vw;
-    animation: pulse 2s forwards;
+    animation: pulse 2s forwards ;
     transition: transform 0.2s ease;
 }
 
@@ -59,37 +55,7 @@ h1:hover{
     animation: sparkle 1s infinite alternate;
 }
 
-@keyframes sparkle{
-    0%{
-        text-shadow: 
-            1px 1px 0px white,
-            2px 2px 0px var(--rood),
-            0 0 5px var(--roze),
-            0 0 15px var(--roze),
-            0 0 20px var(--roze);
-    }
-    100% {
-        text-shadow: 
-            1px 1px 0px white,
-            2px 2px 0px var(--rood),
-            0 0 5px var(--roze),
-            0 0 10px var(--roze),
-            0 0 15px var(--roze);
-    }
-}
 
-@keyframes pulse{
-    0%{
-        transform: translateX(-50%) scale(1);
-    }
-    50%{
-        transform: translateX(-50%) scale(1.1);
-    }
-    100% {
-        transform: translateX(-50%) scale(1);
-    }
-
-}
 
 /* control panel */
 body>section:nth-of-type(1) {
@@ -106,81 +72,9 @@ body>section:nth-of-type(1) {
     box-shadow: 0 5px 15px rgba(255, 133, 179, 0.3);
 }
 
-/* Larger screens */
-@media (min-width: 750px) {
-    body>section:nth-of-type(1) {
-        width: 10em;
-        background-color: white;
-    }
-
-    body>section:nth-of-type(1) input {
-        width: 90%;
-        background-color: var(--roze);
-    }
-      h1 {
-        top: 1em;
-        font-size: 3rem;
-    }
-
-    /* body>section:nth-of-type(3) li:nth-of-type(1),
-    body>section:nth-of-type(3) li:nth-of-type(2){
-        width: 12em;
-        height: 12em;
-    } */
-
-    body>section:nth-of-type(2) input{
-        width: 10em;
-        height: 4em;
-    }
-
-    body>section:nth-of-type(2) input::after{
-        width: 5em;
-        background-position: right;
-        width: 50%;
-    }
-
-    body>section:nth-of-type(2) input:checked::after {
-        translate: 7em;
-    }
-
-  
-}
-
-
-@media (max-width: 750px){
-    body>section:nth-of-type(1){
-        width: 3em;
-        /* padding: 10px; */
-    }
-    body>section:nth-of-type(1) input{
-        width: 80%;
-    }
-
-    body>section:nth-of-type(3) li{
-        width: 5em;
-        height: 5em;
-    }
-    body>section:nth-of-type(2) input{
-        width: 7em;
-        height: 3em;
-    }
-
-    body>section:nth-of-type(2) input::after{
-        /* width: 2.5em; */
-        width: 40%;
-    }
-    body>section:nth-of-type(2) input:checked::after {
-        translate: 4em;
-    }
-
-    h1{
-        font-size: 3rem;
-    }
-}
-
 
 section:nth-of-type(1) input {
-
+/* Control panel van de kleuren */
     appearance: none;
     font: inherit;
     margin: 0;
@@ -214,7 +108,7 @@ section:nth-of-type(1) input {
 /* jurkje */
 article>div>div {
     position: absolute;
-    width: 65%;
+    width: 70%;
     height: 9em;
     left: 50%;
     translate: -50% 0;
@@ -230,7 +124,7 @@ article>div>div {
     /* Bron: https://easycodetools.com/tool/cssclippath-generator */
 
      /* Add polka dots pattern to the dress */
-     background-image: radial-gradient(white 10%, transparent 11%), 
+    background-image: radial-gradient(white 10%, transparent 11%), 
      radial-gradient(white 10%, transparent 11%);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
@@ -238,14 +132,17 @@ article>div>div {
 
 
 
+
 /* aangeven dat de achtergrond kleur veranderd als de input veranderd, 
 variabel opnieuw aangesproken zodat dit werkt met de container/ style queries 
 en ik laat weten wat waarbij hoort*/
 
+/* control panel */
 body>section:nth-of-type(1) {
 
     input[value="geel"] {
         background-color: var(--geel);
+        --active-color: geel;
     }
 
     input[value="roze"] {
@@ -277,12 +174,12 @@ html:has(input[value="geel"]:checked) {
 }
 
 html:has(input[value="roze"]:checked) {
---active-color: roze;
+    --active-color: roze;
 } 
 
 /* Red button selected */
 html:has(input[value="rood"]:checked) {
---active-color: rood;
+    --active-color: rood;
 }
 
 html:has(input[value="blauw"]:checked) {
@@ -296,6 +193,7 @@ style queries regelen
 netter maken, structuur 
 wereldbol  
 ////////////////////*/
+
 
 /* container queries */
 /* variabel is aangemaakt in de root en wordt hier 
@@ -343,44 +241,6 @@ aangesproken wanneer deze veranderd */
 
 /* wanneer de actieve kleur in de eerder aangesproken variable blauw is, 
 geeft hij hier aan welke actie er uitgevoerd gaat worden.  */
-
-    /* keyframes */
-    @keyframes bounce {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-2em);
-        }
-    }
-
-    @keyframes wave {
-
-        0%,
-        100% {
-            transform: rotateX(0deg);
-        }
-
-        50% {
-            transform: rotateX(180deg);
-        }
-    }
-
-/* keyframes voor de animatie  */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
 
 
 /* hele hello kitty  */
@@ -676,8 +536,7 @@ body>section:nth-of-type(2) input {
     appearance: none;
     font: inherit;
     margin: 0;
-    /* width: 7em;
-    height: 3em; */
+   
     padding: .25em;
     background-image: linear-gradient(to left,
     #301934 50%,
@@ -701,7 +560,6 @@ body>section:nth-of-type(2) input::after {
     display: block;
     height: 100%;
     aspect-ratio: 1;
-    /* background-color: gold; */
     background-color: white;
     background-image: radial-gradient(gold,
             yellow);
@@ -712,10 +570,6 @@ body>section:nth-of-type(2) input::after {
     transition: .2s ease-in;
 
 }
-
-/* body>section:nth-of-type(2) input:checked::after {
-    translate: 4em;
-} */
 
 
 /* aanspreken dat de achtergrond veranderd als de slider van dag naar nacht gaat */
@@ -743,6 +597,7 @@ body:has(input[type="checkbox"]:checked) {
 
     section:nth-of-type(3) li:nth-of-type(2) {
         display: flex;
+        position: absolute;
         animation: fadeIn .5s ease;
     }
 
@@ -753,8 +608,8 @@ body:has(input[type="checkbox"]:checked) {
 /* zon en maan */
 body>section:nth-of-type(3) li {
     position: absolute;
-    width: 6em;
-    height: 6em;
+    width: 25vw;
+    height: 25vw;
     border-radius: 50%;
 
 }
@@ -780,7 +635,7 @@ body>section:nth-of-type(3) li:nth-of-type(1) {
 /* maantje */
 body>section:nth-of-type(3) li:nth-of-type(2) {
 
-    position: absolute;
+    /* position: absolute; */
     top: 2em;
     left: 2em;
     display: none;
@@ -796,7 +651,144 @@ body>section:nth-of-type(3) li:nth-of-type(2) {
 }
 
 
+/* Larger screens */
+@media (min-width: 750px) {
+    body>section:nth-of-type(1) {
+        width: 10em;
+        background-color: white;
+    }
+
+    body>section:nth-of-type(1) input {
+        width: 90%;
+        background-color: var(--roze);
+    }
+      h1 {
+        top: 1em;
+        font-size: 5rem;
+    }
+
+    body>section:nth-of-type(2) input{
+        width: 10em;
+        height: 4em;
+    }
+
+    body>section:nth-of-type(2) input::after{
+        width: 5em;
+        background-position: right;
+        width: 50%;
+    }
+
+    body>section:nth-of-type(2) input:checked::after {
+        translate: 7em;
+    }
+
+}
+
+
+@media (max-width: 750px){
+    body>section:nth-of-type(1){
+        width: 3em;
+        /* padding: 10px; */
+    }
+    body>section:nth-of-type(1) input{
+        width: 80%;
+    }
+
+    body>section:nth-of-type(3) li{
+        width: 5em;
+        height: 5em;
+    }
+    body>section:nth-of-type(2) input{
+        width: 7em;
+        height: 3em;
+    }
+
+    body>section:nth-of-type(2) input::after{
+      
+        width: 40%;
+    }
+    body>section:nth-of-type(2) input:checked::after {
+        translate: 4em;
+    }
+
+    h1{
+        top: 3em;
+        font-size: 2rem;
+    }
+}
+
+
+
 /* Bron:https://codepen.io/jpbarth/pen/VyyegV  */
 
 
-/* t-shirt */
+    /* keyframes */
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-2em);
+        }
+    }
+
+    @keyframes wave {
+
+        0%,
+        100% {
+            transform: rotateX(0deg);
+        }
+
+        50% {
+            transform: rotateX(180deg);
+        }
+    }
+
+/* keyframes voor de animatie  */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes sparkle{
+    0%{
+        text-shadow: 
+            1px 1px 0px white,
+            2px 2px 0px var(--rood),
+            0 0 5px var(--roze),
+            0 0 15px var(--roze),
+            0 0 20px var(--roze);
+    }
+    100% {
+        text-shadow: 
+            1px 1px 0px white,
+            2px 2px 0px var(--rood),
+            0 0 5px var(--roze),
+            0 0 10px var(--roze),
+            0 0 15px var(--roze);
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform: translateX(-50%) scale(1);
+    }
+    50%{
+        transform: translateX(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+}
