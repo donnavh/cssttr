@@ -39,7 +39,7 @@ h1 {
     position: fixed;
     top: 2em;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%, 50%);
     color: var(--roze);
     font-family: "Caprasimo", cursive, sans-serif;
     text-shadow: 
@@ -252,11 +252,14 @@ article {
     position: fixed;
     top: 52vh;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     display: flex;
     flex-direction: column;
     align-items: center;
+
     width: 17em;
+    max-width: 90vw;
+    transform: translate(-50%, -50%) scale(1);
     z-index: 999;
     /* height: auto; */
     max-width: 100%;
@@ -710,6 +713,11 @@ body>section:nth-of-type(3) li:nth-of-type(2) {
         width: 3em;
         /* padding: 10px; */
     }
+    article{
+        /* width: 10em; */
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
     body>section:nth-of-type(1) input{
         width: 80%;
     }
