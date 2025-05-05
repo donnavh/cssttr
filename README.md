@@ -71,5 +71,7 @@ Wat ik moest gaan aanpassen was dus de maten van de elementen die op de pagina s
 
 Ook heb ik de gehele kleuren en de uitstraling van de pagina meer naar hello kitty gemaakt. de titel geeft meer gevoel mee aan de pagina en heeeft een animate aan zich gekoppeld. De kleuren zijn zachten en wanneer er over de titel gehoverd wordt krijgt deze een glow. 
 
+Wat voor mij een probleem was en bleef was dat wanneer ik de pagina ging schalen, alle elementen niet meer goed gepositioneerd waren en dus over de hele pagina heen gingen schuiven. Vooral in de dark mode. Dit kwam omdat de elementen een goede positie hadden op de normale pagina maar hierna werden overschreven en dus niet goed op hun plek gezet werden. Dit heb ik kunnen oplossen door elementen een fixed position te geven. En deze een vaste positie geven waardoor ze niet steeds moeten zoeken op het scherm naar waar ze moeten staan. 
 
-De elementen op de pagina hebben een plek gekregen waardoor ze op zichzelf mee schalen. 
+Ik ben blij met hoe het eindresultaat is geworden en dat de dingen die ik achteraf zag die toch niet helemaal klopten het nu beter doen. 
+
